@@ -1,0 +1,31 @@
+baseurl = "https://www.example.org/"
+title = "Phil Azar"
+copyright = "Copyright &copy; 2018 -  Big Global Tech Business Corp. LLC. &trade;"
+canonifyurls = true
+theme = "hugo-kiera"
+languageCode ="en-us"
+paginate = 3
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+summaryLength = 30
+enableEmoji = true
+pygmentsCodeFences = true
+
+disqusShortname="phil-azar"
+
+[author]
+    name = "Phil Azar"
+    github = "filetczar"
+    linkedin = "phil-azar-87aa6779/"
+    twitter = "filetczar"
+
+[params]
+    tagline = "Super good at analytics and words"
+
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+    
+    
+
+
+
+
