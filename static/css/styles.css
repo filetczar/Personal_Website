@@ -2,7 +2,7 @@ head {
     margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "helvetica", sans-serif;
   color: #333333
 }
 
@@ -10,7 +10,7 @@ head {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "helvetica", sans-serif;
   color: #333333;
 }
 #social-media li:first-child a:hover {

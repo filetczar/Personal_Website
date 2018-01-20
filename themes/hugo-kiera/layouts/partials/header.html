@@ -29,6 +29,7 @@
         {{ end }} {{ if .Site.Author.instagram }}
         <li><a href="https://instagram.com/{{ .Site.Author.instagram }}"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a></li>
         {{ end }}
+        <li><a href="{{.Site.BaseURL}}index.xml"><i class="fa fa-rss fa-lg" aria-hidden="true"></i></a></li>
       </ul>
       {{ with .Site.Params.tagline }}
       <p><em>{{ . | markdownify }}</em></p>
