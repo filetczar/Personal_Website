@@ -1,4 +1,4 @@
-baseurl = "https://www.example.org/"
+baseurl = "/"
 title = "Phil Azar"
 copyright = "Copyright &copy; 2018 -  Big Global Tech Business Corp. LLC. &trade;"
 canonifyurls = true
