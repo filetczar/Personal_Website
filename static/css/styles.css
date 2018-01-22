@@ -2,7 +2,7 @@ head {
     margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: "helvetica", sans-serif;
+  font-family: "Roboto-Condensed", sans-serif;
   color: #333333
 }
 
@@ -10,17 +10,20 @@ head {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: "helvetica", sans-serif;
+  font-family: "Roboto-Condensed", sans-serif;
   color: #333333;
 }
 #social-media li:first-child a:hover {
     color:#00aced;
   }
-#social-media li:nth-child(2) a:hover { 
+#social-media li:nth-child(2) a:hover {
     color:#0077B5;
   }
 #social-media li:nth-child(3) a:hover {
   color: #333;
+}
+#social-media li:nth-child(4) a:hover {
+  color: #f26522;
 }
 
 a:hover {
