@@ -4,7 +4,6 @@ copyright = "Copyright &copy; 2018 -  Big Global Tech Business Corp. LLC. &trade
 canonifyurls = true
 theme = "hugo-kiera"
 languageCode ="en-us"
-paginate = 3
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 summaryLength = 30
 enableEmoji = true
