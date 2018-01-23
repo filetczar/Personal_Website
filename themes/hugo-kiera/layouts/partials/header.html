@@ -6,7 +6,7 @@
   <title>{{ .Site.Title }}</title>
   {{ partial "meta" . }}
   {{ partial "header_includes" . -}}
-  <link rel="shortcut icon" type="image/x-icon" href="{{ relURL }}/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{ "images/favicon.ico" | relURL}}" />
 </head>
 
 <body>
