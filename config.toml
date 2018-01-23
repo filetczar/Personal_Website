@@ -18,7 +18,7 @@ disqusShortname="phil-azar"
     twitter = "filetczar"
 
 [params]
-    tagline = "Super good at numbers and words"
+    tagline = "Super good at words"
 
 [permalinks]
     posts = "/:year/:month/:day/:slug/"
