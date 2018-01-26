@@ -22,7 +22,7 @@ googleAnalytics="UA-113127371-1"
     tagline = "Super good at words"
 
 [permalinks]
-    posts = "/:year/:month/:day/:slug/"
+    posts = "/:slug/"
     
     
 
