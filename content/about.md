@@ -6,7 +6,13 @@ meta = "false"
 +++
 
 
-I am data analyst at [84.51&deg;] (https://www.8451.com). My main interests include statistics and machine learning, data visualization, and pancakes. 
+I'm a data analyst at [84.51&deg;] (https://www.8451.com). My main interests include statistics and machine learning, data visualization, and pancakes. 
+
+
+[About this website](https://www.phil-azar.com/2018/01/22/bloggin/)
+
+
+
 
 
 
