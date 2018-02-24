@@ -120,7 +120,7 @@ time {
 #container main {
   flex: 1 0 0;
   line-height: 1.5;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 #container main section#home ul {
@@ -168,25 +168,25 @@ time {
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #f7f7f7;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 #container main article pre {
   background-color: #ffffcc;
   overflow-x: auto;
   padding: 0.8em;
-  font-size: 0.9em;
+  font-size: 0.8em;
   box-shadow: 0 -1px 0 #bbbbbb inset;
 }
 
 #container main article pre code {
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 #container main article p code {
   padding: 0.2em;
   background-color: #ffcccc;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 #container main article p kbd {
