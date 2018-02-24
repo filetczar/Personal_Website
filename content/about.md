@@ -11,7 +11,7 @@ My name is Phil and I am a data journalist and analyst. Originally from St. Loui
 I made this site to share data and the stories they tell with others. More on that [here](https://www.phil-azar.com/bloggin/).
 
 
-This site was made using [blogdown](https://bookdown.org/yihui/blogdown/) and [hugo](https://gohugo.io/).
+
 
 Feel free to contact me in the following order of my likelihood to respond.
 
@@ -29,7 +29,7 @@ Feel free to contact me in the following order of my likelihood to respond.
 
 
 
-
+<small>This site was made using [blogdown](https://bookdown.org/yihui/blogdown/) and [hugo](https://gohugo.io/).</small>
 
 
 
