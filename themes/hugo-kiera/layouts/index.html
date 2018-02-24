@@ -9,6 +9,9 @@
             <p>{{ with .Description }}
             {{ $.Scratch.Set "summary" (markdownif . ) } 
             </p>
+            {{ if .Truncated }}
+            <a href="{{ .RelPermalink }}">Read more&hellip;</a>
+            {{ end }}
           </li>
           {{ end }}
         </ul>
