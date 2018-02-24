@@ -15,10 +15,14 @@ This site was made using [blogdown](https://bookdown.org/yihui/blogdown/) and [h
 
 Feel free to contact me in the following order of my likelihood to respond.
 
-1) email: azar.phil@gmail.com
+1) email: azar.phil@gmail.com 
+
 2) [twitter](https://twitter.com/filetczar)
+
 3) Corning me in an alley and yelling into my face
+
 ...
+
 547) [linkedin](https://www.linkedin.com/in/phil-azar-87aa6779)
 
 
