@@ -1,15 +1,5 @@
 {{ define "main" }}
-{{ with .Description }}
-  {{ $.Scratch.Set "summary" (markdownify .) }}
-{{ else }}
-  {{ $.Scratch.Set "summary"
-    ((delimit (findRE "(<p.*?>.*?</p>\\s*)+" .Content) "[&hellip;] ") |
-      plainify |
-      truncate (default 200 .Site.Params.summary_length)
-        (default " &hellip;" .Site.Params.text.truncated ) |
-      replaceRE "&amp;" "&" | safeHTML) }}
-{{ end }}
-{{ $.Scratch.Get "summary" }}
+
 
 <section id="home">
         <ul>
@@ -17,7 +7,7 @@
           <li {{if eq $index 0}}class="first"{{end}}>
             <h1><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h1> 
             {{ partial "aside" . }}
-            <p>{{ .Summary }}</p>
+            <p>{{ .Description }}</p>
             {{ if .Truncated }}
             <a href="{{ .RelPermalink }}">Read more&hellip;</a>
             {{ end }}
