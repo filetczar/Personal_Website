@@ -40,7 +40,7 @@ network_plot <- ggplot(senate_gg, aes(x = x, y = y, xend=xend, yend=yend, color 
   The selection of your echo chamber reminds us of what we want to hear as much as it is portraying to the world the a version of ourselves we like best. No one uses social media more for this purpose than politicians, who transform twitter into a stage to shout to their voter base. Who they follow - and not follow - reveals how they want to be perceived. Analyzing the follower network of all 100 U.S. Senators shows a network of bipartisanship, cliques and a fuzzy haired outlier.
      
      
-```{r, echo=TRUE, warning=FALSE, include=TRUE}
+```{r, echo=TRUE, warning=FALSE}
 ggiraph(code={print(network_plot)})
 ```
      
