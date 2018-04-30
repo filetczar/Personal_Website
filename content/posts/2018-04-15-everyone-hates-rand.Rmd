@@ -1,10 +1,13 @@
 ---
-title: Everyone Hates Rand
-author: Phil Azar
+title: 'Everyone Hates Rand'
+author: 'Phil Azar'
 date: '2018-04-15'
 slug: everyone-hates-rand
-categories: []
-tags: ["networks", "politics", "twitter", "network analysis", "Senate"]
+categories: 
+- networks
+- politics
+- Rand Paul
+tags: []
 description: "Analyzing the followers of all 100 U.S. Senators shows a network of bipartisanship, cliques and a fuzzy haired libertarian"
 ---
 ```{r, include=FALSE,echo=FALSE, warning=FALSE, message=FALSE}
@@ -30,17 +33,14 @@ network_plot <- ggplot(senate_gg, aes(x = x, y = y, xend=xend, yend=yend, color 
             label='dotted lines show connections between different parties') +
   geom_text(x=.40, y =.075, size =2.25,alpha=.8, color ='grey50', label='solid lines show connections to same party')
 
-
-
-
 ```
 
-     Witty jokes, Russian operatives, breaking news and Jim Carrey. Twitter is a thought jacuzzi with a welcoming jet for every one. The timeline offers a warm place to scroll through nodding heads reminding us how right we are. Since the election, my feed of jokes and MLB trade rumors rotted into political discourse. Each morning I took in a fresh political outrage with my coffee. It was exhausting. I began unfollowing accounts. Too hyperbolic? Gone. Doesn't agree with me? Next. Retweets 2010 Sam Bradford highlights? You stay. 
+  Witty jokes, Russian operatives, breaking news and Jim Carrey. Twitter is a thought jacuzzi with a welcoming jet for every one. The timeline offers a warm place to scroll through nodding heads reminding us how right we are. Since the election, my feed of jokes and MLB trade rumors rotted into political discourse. Each morning I took in a fresh political outrage with my coffee. It was exhausting. I began unfollowing accounts. Too hyperbolic? Gone. Doesn't agree with me? Next. Retweets 2010 Sam Bradford highlights? You stay.
      
-     The selection of your echo chamber reminds us of what we want to hear as much as it is portraying to the world the a version of ourselves we like best. No one uses social media more for this purpose than politicians, who transform twitter into a stage to shout to their voter base. Who they follow - and not follow - reveals how they want to be perceived. Analyzing the follower network of all 100 U.S. Senators shows a network of bipartisanship, cliques and a fuzzy haired libertarian. 
+  The selection of your echo chamber reminds us of what we want to hear as much as it is portraying to the world the a version of ourselves we like best. No one uses social media more for this purpose than politicians, who transform twitter into a stage to shout to their voter base. Who they follow - and not follow - reveals how they want to be perceived. Analyzing the follower network of all 100 U.S. Senators shows a network of bipartisanship, cliques and a fuzzy haired libertarian. 
      
      
-```{r, echo=TRUE, warning=FALSE}
+```{r, echo=TRUE, warning=FALSE, include=FALSE}
 ggiraph(code={print(network_plot)})
 ```
      
