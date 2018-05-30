@@ -230,7 +230,9 @@ ggplot(senate_gg_cmck, aes(x = x, y = y, xend=xend, yend=yend, color = party)) +
   
   Maybe 99 Senators do agree on one thing ...
   
-  {{< tweet 487001738725969920 >}}
+ <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">.<a href="https://twitter.com/CoryBooker?ref_src=twsrc%5Etfw">@CoryBooker</a>- since we&#39;re in a &quot;bromance,&quot; Id like to share my fave <a href="https://twitter.com/hashtag/bonjovi?src=hash&amp;ref_src=twsrc%5Etfw">#bonjovi</a> song w/ u: <a href="http://t.co/WWzOK1G9LT">http://t.co/WWzOK1G9LT</a> <a href="https://twitter.com/hashtag/playbookcocktails?src=hash&amp;ref_src=twsrc%5Etfw">#playbookcocktails</a> <a href="https://twitter.com/hashtag/mixtape?src=hash&amp;ref_src=twsrc%5Etfw">#mixtape</a></p>&mdash; Senator Rand Paul (@RandPaul) <a href="https://twitter.com/RandPaul/status/487001738725969920">July 9, 2014</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
   
   Rand Paul isn't worth the follow. 
   
@@ -238,7 +240,7 @@ ggplot(senate_gg_cmck, aes(x = x, y = y, xend=xend, yend=yend, color = party)) +
 ###### 2. The correlation between tenure and betweenees is .09. Tenure and closeness is .14. 
   
 
-  
+
   
   
   
