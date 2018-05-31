@@ -234,7 +234,15 @@ ggplot(senate_gg_cmck, aes(x = x, y = y, xend=xend, yend=yend, color = party)) +
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   
-  Rand Paul isn't worth the follow. 
+  Rand Paul isn't worth the follow. (Cory Booker does not follow Rand Paul)
+  
+
+
+
+
+
+
+All code and data can be found [here](https://github.com/filetczar/congress_twitter)
   
 ###### 1. Betweeness and closeness scores are normalized to the entire network's standard deviation and mean. 
 ###### 2. The correlation between tenure and betweenees is .09. Tenure and closeness is .14. 
