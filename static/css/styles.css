@@ -26,8 +26,12 @@ head {
   color: #f26522;
 }
 
+a:link {
+ color:#1663F1; 
+}
+
 a:hover {
-  color:#4A6C9C;
+  color:#1663F1;
   font-weight: bold;
 }
 
