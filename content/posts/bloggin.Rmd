@@ -8,6 +8,7 @@ categories:
 - blog
 - about
 description: "I'm going to quell any expectations that I'm coming from some place of superior knowledge. I assure you I am not."
+ReadingTime: 2
 ---
 
 In 8th grade, my teacher told me that one day I would write for Saturday Night Live in New York City. This seemed like a bright, promising future. Unfortunately, Mrs. Jones was a better teacher than a fortune teller and now I spend my time munging data in Cincinnati, OH. I don't know where things went so wrong, so quick.
