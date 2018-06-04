@@ -1,7 +1,7 @@
 ---
 title: "Bloggin'"
 author: "Phil Azar"
-date: '2018-01-22'
+date: '2018-03-22'
 slug: bloggin
 tags: []
 categories:
