@@ -11,8 +11,8 @@ pygmentsCodeFences = true
 
 
 
-disqusShortname="phil-azar"
-googleAnalytics="UA-113127371-1"
+disqusShortname = "phil-azar"
+googleAnalytics = "UA-113127371-1"
 
 [author]
     name = "Phil Azar"
