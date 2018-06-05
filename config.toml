@@ -25,7 +25,7 @@ googleAnalytics="UA-113127371-1"
 
 [permalinks]
     Stories = "/:slug/"
-    #SponCon = "/:slug/"
+
 
 
 
