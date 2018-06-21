@@ -1,13 +1,15 @@
 ---
 title: "Bourdain in Data"
 author: "Phil Azar"
-date: "June 19, 2018"
-slug: "bourdain-in-data"
+date: "2018-06-20"
+slug: bourdain-in-data
 categories: 
 - TV
 - Food
 - Bourdain
+tags: []
 description: "If I'm an advocate for anything, it's to move. As far as you can, as much as you can. Across the ocean, or simply across the river. Walk in someone else's shoes or at least eat their food. It's a plus for everybody. - A.B."
+ReadingTime: 6
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
@@ -114,4 +116,4 @@ leaflet(data=ny_latlong) %>%
 
 Original data from [Christine Zhang](https://github.com/underthecurve). 
 
-Data and code found [here](https://github.com/filetczar)
+Data and code found [here](https://github.com/filetczar).
