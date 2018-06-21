@@ -21,10 +21,10 @@ library(readr)
 library(magrittr)
 library(stringr)
 library(ggiraph)
-data <- readr::read_csv('/Users/acazar/Desktop/blog/projects/bourdain/bourdain-travel-places/bourdain_episodes_clean.csv')
+data <- readr::read_csv('/Users/acazar/Desktop/blog/projects/bourdain/bourdain-travel-places/data/bourdain_episodes_clean.csv')
 
-ny_latlong <- readr::read_csv('/Users/acazar/Desktop/blog/projects/bourdain/bourdain-travel-places/bourdain_nyc.csv')
-cc_lkp <- readr::read_csv('/Users/acazar/Desktop/blog/projects/bourdain/bourdain-travel-places/country_code_lkp.csv')
+ny_latlong <- readr::read_csv('/Users/acazar/Desktop/blog/projects/bourdain/bourdain-travel-places/data/bourdain_nyc.csv')
+cc_lkp <- readr::read_csv('/Users/acazar/Desktop/blog/projects/bourdain/bourdain-travel-places/data/country_code_lkp.csv')
 pal <- colorFactor(c("#C50006", "#400080", "deepskyblue3"), 
                    domain=c('No Reservations', 'The Layover','Parts Unknown'))
 
@@ -116,4 +116,4 @@ leaflet(data=ny_latlong) %>%
 
 Original data from [Christine Zhang](https://github.com/underthecurve). 
 
-Data and code found [here](https://github.com/filetczar).
+Data and code found [here](https://github.com/filetczar/bourdain_data).
