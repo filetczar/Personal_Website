@@ -6,7 +6,7 @@ meta = "false"
 +++
 
 
-Welcome! My name is Phil and I am a data journalist and analyst living in Cincinnati, OH. I made this site to share data and the stories they tell. I hope you like them.
+I am a data journalist and analyst in Cincinnati, OH. My main interests include city economics, '90s indie films, and Tony LaRussa baseball. When not making high caliber content on this site, I am usually running, cycling, or chasing the mighty chimera of a perfect pancake. Futile so far. If you like data, stories, or Andrew Bogut's college 3-pt percentage, you're in the right place. If you're looking for [auto insurance](https://philazar.com), I regret to inform you that you are probably already disappointed. 
 
 
 Feel free to connect on [twitter](https://twitter.com/filetczar) or email me at azar.phil@gmail.com.
