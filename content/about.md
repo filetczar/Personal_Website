@@ -14,7 +14,8 @@ If you like data, stories, or hot takes on why the 2004 Cardinals were the best 
 Feel free to connect on [twitter](https://twitter.com/filetczar) or email me at azar.phil@gmail.com.
 
 
-
+Resume found [here](https://www.phil-azar.com/resume.pdf). 
+<small>updated 8/18</small>
 
 
 
