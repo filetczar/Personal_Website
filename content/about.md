@@ -6,12 +6,14 @@ meta = "false"
 +++
 
 
-I am a data journalist and analyst in Cincinnati, OH. My main interests include economics, '90s indie films, and Tony LaRussa baseball. When not making high caliber content on this site, I am usually running, cycling, or chasing the chimera of a perfect pancake. Futile so far. 
+I am a data journalist and analyst in Cincinnati, OH. I began writing at St. Louis University High for the *Prep News* and continued on at the University of Illinois writing for the *Daily Illini*, *Buzz Magazine*, and the prestigious *Booze News*. 
 
-If you like data, stories, or hot takes on why the 2004 Cardinals were the best team in baseball, you're in the right place. If you're looking for [auto insurance](https://philazar.com), I regret to inform you that you are probably already disappointed. 
+My career has taken me into the sphere of data science and marketing analytics. I enjoy learning new statistical concepts, coding languages, and uncovering stories from data in all its forms. Here I get to stretch my legs and dip a toe into each of those passions.   
+
+If you like data, stories, or takes on why the 2004 St. Louis Cardinals were the best team in baseball, you're in the right place. If you're looking for [auto insurance](https://philazar.com), I regret to inform you that you are already disappointed. 
 
 
-Feel free to connect on [twitter](https://twitter.com/filetczar) or email me at azar.phil@gmail.com.
+Feel free to connect on [twitter](https://twitter.com/filetczar) or email me at azar.phil@gmail.com. I am open to conversation and business opportunities. 
 
 
 [Resume](https://www.phil-azar.com/resume.pdf). 
@@ -23,7 +25,6 @@ Feel free to connect on [twitter](https://twitter.com/filetczar) or email me at 
 
 
 
-<small> I think I have to say this -- the content of this website does not reflect my employer </small>
 
 
 
