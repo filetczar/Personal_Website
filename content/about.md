@@ -6,7 +6,7 @@ meta = "false"
 +++
 
 
-I am a data journalist and analyst in Cincinnati, OH. I began writing at St. Louis University High for the *Prep News* and continued on at the University of Illinois writing for the *Daily Illini*, *Buzz Magazine*, and the prestigious *Booze News*. 
+I am a data journalist and scientist in Cincinnati, OH. I began writing at St. Louis University High for the *Prep News* and continued on at the University of Illinois writing for the *Daily Illini*, *Buzz Magazine*, and the prestigious *Booze News*. 
 
 My career has taken me into the sphere of data science and marketing analytics. I enjoy learning new statistical concepts, coding languages, and uncovering stories from data in all its forms. Here I get to stretch my legs and dip a toe into each of those passions.   
 

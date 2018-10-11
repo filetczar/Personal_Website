@@ -1,5 +1,5 @@
 +++
-title = "Data Stories"
+title = "Stories"
 menu = "main"
 weight = "10"
 +++
