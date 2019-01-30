@@ -1,6 +1,6 @@
 baseurl = "https://www.phil-azar.com/"
 title = "Phil Azar"
-copyright = "Copyright &copy; 2018 - World Wide Business Info Tech Group LLC. &trade;"
+copyright = "Copyright &copy; 2019 - World Wide Business Tech Group LLC. &trade;"
 canonifyurls = true
 theme = "hugo-kiera"
 languageCode ="en-us"
@@ -16,13 +16,13 @@ googleAnalytics = "UA-113127371-1"
 
 
 [author]
-    name = "Phil Azar"
+    name = "phil azar"
     github = "filetczar"
     linkedin = "phil-azar-87aa6779/"
     twitter = "filetczar"
 
 [params]
-    tagline = "Super good at words"
+    tagline = "super good at words"
 
 [permalinks]
     Stories = "/:slug/"
