@@ -1,6 +1,6 @@
 baseurl = "https://www.phil-azar.com/"
 title = "Phil Azar"
-copyright = "Copyright &copy; 2019 - World Wide Business Tech Group LLC. &trade;"
+copyright = "Copyright &copy; 2019 - Global Business Tech Corp &trade;"
 canonifyurls = true
 theme = "hugo-kiera"
 languageCode ="en-us"
