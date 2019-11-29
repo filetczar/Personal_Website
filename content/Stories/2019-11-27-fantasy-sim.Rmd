@@ -129,5 +129,5 @@ The real nail biter heading into this week is how the seeds could potentially fa
 
 Simulations assign a probability to each possible scenario in our final week of the regular season. These probabilities defer definitiveness to the world of uncertainty. But one thing is certain - our friendship that has held these league together for 6 seasons. And that Raz (Ice Cold Cruisers) sucks at fantasy football. That is certain too. 
 
-
+[Simulations Code and Methodology Here](https://github.com/filetczar/fantasy_simulations)
 
