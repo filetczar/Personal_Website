@@ -57,7 +57,7 @@ chart_data <- data %>%
 
 
 formattable(chart_data, 
-            align = c('l','l','c', 'c'), 
+            align = c('l','l','l', 'c'), 
             list(
                  
                  `Win This Week` = formatter("span", 
