@@ -16,7 +16,7 @@ If you like data, stories, or takes on why the 2004 St. Louis Cardinals were the
 Feel free to connect on [twitter](https://twitter.com/filetczar) or email me at azar.phil@gmail.com. I am open to conversation and business opportunities. 
 
 
-[Resume](https://www.phil-azar.com/resume.pdf). 
+[**Resume Here**](https://www.phil-azar.com/resume.pdf). 
 
 
 
