@@ -1,6 +1,6 @@
 baseurl = "https://www.phil-azar.com/"
 title = "Phil Azar"
-copyright = "Copyright &copy; 2019 - Global Business Tech Corp &trade;"
+copyright = "Copyright &copy; 2020 - World Wide Global Business Tech Corp &trade;"
 canonifyurls = true
 theme = "hugo-kiera"
 languageCode ="en-us"
@@ -25,7 +25,7 @@ googleAnalytics = "UA-113127371-1"
     tagline = "super good at words"
 
 [permalinks]
-    Stories = "/:slug/"
+    Essays = "/:slug/"
 
 
 
