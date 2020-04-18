@@ -2,15 +2,15 @@ head {
     margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: "Roboto-Condensed", sans-serif;
-  color: #333333
+  font-family: "Open Sans", sans-serif;
+  color: #44464a
 }
 
   body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: "Roboto-Condensed", sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #333333;
 }
 #social-media li:first-child a:hover {
@@ -39,7 +39,8 @@ h4,
 h5,
 h6,
 time {
-  font-family: "Roboto-Condensed", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  color: #44464a;
 }
 
 #container {
@@ -52,7 +53,7 @@ time {
 }
 
 #container > * {
-  width: 700px;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -72,7 +73,7 @@ time {
 }
 
 #container header h1 a {
-  color: #000000;
+  color: #44464a;
 }
 
 #container header ul {
@@ -97,9 +98,9 @@ time {
 }
 
 #container nav {
-  border-bottom: solid 3px #cecece;
+  border-bottom: solid 3px #cc5500;
   padding-bottom: 0.5em;
-  font-family: "Roboto-Condensed", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 #container nav ul {
@@ -115,7 +116,7 @@ time {
 }
 
 #container nav ul li a.active {
-  border-bottom: 0.5em solid #666666;
+  border-bottom: 0.5em solid #FFFFFF;
 }
 
 #container main {
@@ -140,7 +141,7 @@ time {
 }
 
 #container main section#home span {
-  color: #000000;
+  color: #44464a;
 }
 
 #container main section#list ul {
@@ -151,7 +152,7 @@ time {
 
 #container main section#list ul li {
   padding: 0.5em 0;
-  border-bottom: 1px solid #cecece;
+  border-bottom: 1px solid #ff7034;
 }
 
 #container main section#list ul li time, #container main section#list ul li span.count {
@@ -170,6 +171,9 @@ time {
   justify-content: space-between;
   border-top: 1px solid #f7f7f7;
   font-size: 0.6em;
+}
+a {
+  font-weight: bold;
 }
 
 #container main article pre {
@@ -200,7 +204,7 @@ time {
   background-color: #fcfcfc;
   border-width: 1px;
   border-style: solid;
-  border-color: #cccccc #cccccc #bbbbbb;
+  border-color: #cc5500;
   border-image: none;
   border-radius: 3px;
   box-shadow: 0 -1px 0 #bbbbbb inset;
@@ -211,7 +215,7 @@ time {
 }
 
 #container footer {
-  border-top: solid 1px #cecece;
+  border-top: solid 1px #cc5500;
 }
 
 #container footer h6 {
@@ -220,7 +224,7 @@ time {
 
 .meta-aside, #container main section#home ul li aside, #container main article aside {
   margin: 0.5em 0;
-  font-family: "Ruda", sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #909090;
   font-size: 0.8em;
 }
@@ -237,7 +241,7 @@ time {
 }
 
 a {
-  color: #000000;
+  color: #44464a;
   text-decoration: none;
 }
 
@@ -345,7 +349,7 @@ figure.float-right figcaption {
 
 table {
   width: 100%;
-  border-bottom: solid 1px #cecece;
+  border-bottom: solid 1px #cc5500;
 }
 
 table thead {
@@ -390,4 +394,20 @@ ul.pagination {
 
 ul.pagination li {
   padding: 0 1em;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.border {
+  border-top: solid 1px #cc5500
 }
