@@ -1,0 +1,267 @@
+---
+title: 'Everyone Hates Rand'
+author: 'Phil Azar'
+date: '2018-05-29'
+slug: everyone-hates-rand
+categories: 
+- networks
+- politics
+- Rand Paul
+tags: []
+description: "Analyzing the twitter network of all 100 U.S. Senators shows a yarnball of bipartisanship, cliques and a fuzzy haired outlier"
+ReadingTime: 13
+---
+```{r, include=FALSE,echo=FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+library(ggnetwork)
+library(stringr)
+library(ggiraph)
+library(statnet)
+library(readr)
+library(ggrepel)
+library(igraph)
+library(tidyverse)
+library(network)
+library(DT)
+edges_df <- readRDS('/Users/acazar/Desktop/blog/projects/congress_twitter/data/edges_df.rds')
+politicians <- read_csv('/Users/acazar/Desktop/blog/projects/congress_twitter/data/politicians.csv')
+politicians$name <- str_c(politicians$first_name, politicians$last_name, sep= " ")
+senate_df <- edges_df %>% 
+  inner_join(., politicians, by = c('source'='name')) %>% 
+  select(source, target, source_type =type, source_party =party) %>% 
+  inner_join(.,politicians, by=c('target'='name')) %>% 
+  select(source, target, source_type, source_party,target_type =type,target_party=party) %>%
+  dplyr::filter(source_type== 'sen' & target_type =='sen') %>% 
+  mutate(line = ifelse(source_party == target_party, "solid", 'dotted')) %>% 
+  select(source, target, type=source_type, party=source_party, line)
+
+senate_gg <- readRDS('/Users/acazar/Desktop/blog/projects/congress_twitter/data/senate_gg.rds')
+network_plot <- ggplot(senate_gg, aes(x = x, y = y, xend=xend, yend=yend, color = party, 
+                              tooltip=vertex.names)) +
+  geom_edges(aes(linetype = line), curvature=.4, alpha=.3, size=.1, show.legend = FALSE, angle =90, ncp=3) +
+  geom_nodes(alpha= .4, aes(fill =party, size =Betweenness*.25)) +
+  scale_color_manual(values=c('Democrat'='dodgerblue', 'Republican'='red', 'Independent'='forestgreen', 'NA'='grey')) +
+  theme_blank() +
+  scale_linetype_manual(values = c('solid'='solid', 'dotted'='dotted')) +
+  geom_nodetext(aes(label=vertex.names, x=x,y=y), fontface='bold', size =2, nudge_y=.025) +
+  guides(color="none", fill='none') +
+  theme(legend.position = 'bottom') +
+  scale_size_continuous(name='Betweeness', c(0,10,30), labels=c('Small','Moderate','Large'))
+
+```
+
+  Witty jokes, breaking news and Kanye West. Twitter is a thought jacuzzi with a welcoming jet for every one. Whether they're filling dull moments on the couch or avoiding conversations in the elevator, 68 million Americans a month cozy up the timeline's warming glow. Since the 2016 elections, my feed of Mulaney jokes and Cardinals trade rumors rotted into political discourse. For a while I enjoyed taking in a fresh political outrage each morning, but the feeling eventually spoiled. I began unfollowing accounts in an attempt to craft an online world more closely resembling myslef. Too hyperbolic? Gone. Likes Fox News? Next. Retweets 2010 Rams Sam Bradford highlights? You stay.
+     
+  Your echo chamber selection reminds us of what we want to hear as it is portraying to the world the version of ourselves we like best. No one uses social media more for this purpose than politicians, who transform twitter into a stage to shout to their voter base. Who they follow - and not follow - reveals how they want to be perceived. While twitter has been weaponized by far winged tweeters and the White House, the Senate has remained a curious case ahead of the 2018 midterm elections - if it may entail some of the same mudslinging we saw in 2016. Analyzing the follower network of all 100 U.S. Senators shows an overall network of bipartisanship, some cliques and a fuzzy haired outlier.
+     
+     
+```{r, echo=FALSE, warning=FALSE, fig.width=9, fig.height=5}
+ggiraph(code={print(network_plot)}, width=1, height_svg = 6)
+```
+
+ Rand Paul has had a tough few years. He lingered around the 2016 Republican primaries without gaining serious candidancy. His most recent stubborn stalls of the Republican tax bill and the nomination of Mike Pompeo as Secretary of State faulted against party lines. Even mowing his lawn has its [thorns](https://www.gq.com/story/inside-rand-pauls-neighborhood-fight).
+  
+  But this may be part of Rand's larger strategy, as Time [suggests](http://time.com/5251744/rand-paul-mike-pompeo-vote/). His theatrics on seemingly slam-dunk votes allow him to control the conversation and gain access to the Whitehouse. The Time article points to the Mike Pompeo nomination as Randiest of Rand plans. His vote pressured Pompeo on key points about his previous hawkishness and led to Pompeo publicly admitting the Iraq War was a mistake. 
+  
+```{r, echo=FALSE, warning=FALSE}
+rand_graph <- senate_df %>% 
+            dplyr::filter(source == 'Rand Paul' | target== 'Rand Paul') %>% 
+            dplyr::select(source,target)
+rand_graph <- network::network(rand_graph)
+rand_df <- senate_df %>% 
+  filter(source == 'Rand Paul' | target== 'Rand Paul')
+network::set.edge.attribute(rand_graph, "type", rand_df[,'type'])
+network::set.edge.attribute(rand_graph, 'line', rand_df[,'line'])
+network::set.edge.attribute(rand_graph, 'party', rand_df[,'party'])
+
+senate_gg_rand <- ggnetwork(rand_graph,layout = "fruchtermanreingold", cell.jitter = .5)
+
+ron_x <- senate_gg_rand$x[senate_gg_rand$vertex.names =='Ron Johnson'] +.01
+ron_y <- senate_gg_rand$y[senate_gg_rand$vertex.names =='Ron Johnson'] + .01
+
+ggplot(senate_gg_rand, aes(x = x, y = y, xend=xend, yend=yend, color = party)) +
+  geom_edges(aes(linetype = line), curvature=.3, alpha=.3, size=1, show.legend = FALSE, arrow=arrow(length=unit(6,'pt'), type='closed')) +
+  geom_nodes(alpha= .4, aes(fill =party)) +
+  scale_color_manual(values=c('Republican'='red')) +
+  theme_blank() +
+  scale_linetype_manual(values = c('solid'='solid', 'dotted'='dotted')) +
+  geom_nodetext(aes(label=vertex.names, x=x,y=y), fontface='bold', size =2.5, nudge_y=.03, nudge_x = .03) +
+  geom_text(aes(label ='Ron Johnson', x = ron_x, y = ron_y), fontface='bold', size=2.5, alpha=.6,nudge_y=.03, nudge_x = .03) +
+  guides(color="none", fill='none') +
+  theme(legend.position = 'bottom') +
+  ggtitle("Rand's World | @RandPaul")
+
+```
+     
+ 
+  Rand's independency from establishment politics positions him as an outside politician - he is not tethered to any party's tent pole. He puts people ahead of politics... at least that's his marketing angle and on Twitter Rand remains on brand. He only follows two other Senators: Mike Lee (R-UT) and Ron Johnson (R-WI). Rand sits on the Homeland Security committee which Ron chairs and Rand might consider him a political ally. Whatever the attraction, Rand got the shaft. Johnson does not follow him and is savagely on team #NoFollowBack. 
+  
+  The Mike Lee connection, however, says more about Mike than Rand. Mike has a betweeness score of 123. In a network analysis, betweeness measures someone's connectivity to the rest of the network. The higher betweeness score, the shorter paths this person has to others and is more connected. Lee has the 7th highest betweenness score in the Senate's twitterverse, and 5th highest among Republicans. He is one of 7 US seneators to follow Rand Paul, and the only mutual relationship Rand has on twitter. Whether this is part of Lee's greater communication strategy to his voter base remains to be seen as this could help him be viewed as a party man. Rand wants to be seen as the opposite, and his staunch independency on the Hill and on social media seems to be working - in 2016, he won the Kentucky senate Republican primary by 76 points and the general election by over 14 points. 
+
+```{r, echo=FALSE,warning=FALSE}
+senate_graph_obj <- graph_from_data_frame(senate_df,directed = TRUE)
+senate_closeness <- igraph::closeness(senate_graph_obj,mode='total') %>% 
+                    as.data.frame() %>% 
+                    tibble::rownames_to_column() 
+names(senate_closeness) <- c('Senator', 'Closeness')
+senate_btw <- senate_gg %>% 
+  distinct(vertex.names, Betweenness)
+mean <- mean(senate_btw$Betweenness)
+sd <- sd(senate_btw$Betweenness)
+senate_btw$btw_std <- (senate_btw$Betweenness - mean)/sd
+
+
+cls_mean <- mean(senate_closeness$Closeness)
+cls_sd <- sd(senate_closeness$Closeness)
+senate_closeness$cls_std <- (senate_closeness$Closeness - cls_mean)/cls_sd
+matrix_plot <- senate_closeness %>% 
+  inner_join(.,senate_btw, by=c('Senator'='vertex.names')) %>% 
+  inner_join(.,politicians, by=c('Senator'='name')) %>% 
+  arrange(desc(cls_std)) %>% 
+  dplyr::mutate(cls_rank = row_number()) %>% 
+  arrange(desc(btw_std)) %>% 
+  dplyr::mutate(btw_rank = row_number()) %>% 
+  ggplot(., aes(x=cls_std, y=btw_std, color=party, 
+                tooltip=paste0(Senator, " - ", state, '\n Bipartisan Rank: ', cls_rank, '\n Connections Rank: ', btw_rank))) +
+  geom_point(size = 1.5, alpha=.8) +
+  theme_blank() +
+  scale_color_manual(values=c('Democrat'='dodgerblue', 'Republican'='red', 'Independent'='forestgreen', 'NA'='grey')) +
+  xlim(-5,5) +
+  ylim(-5,5) +
+  geom_vline(xintercept = 0, color='grey50', size=1, alpha= .7) +
+  geom_hline(yintercept = 0, color='grey50', size=1, alpha=.7) +
+  guides(color='none') +
+  geom_text(x=-4,y=.5, label="More Partisanship", color ='grey50', alpha=.5, size = 3.5) +
+  geom_text(x=4,y=.5, label ='Less Partisanship', color ='grey50', alpha=.5, size =3.5) +
+  geom_text(y=4,x=-1.1, label ='More Connected', color ='grey50', alpha=.5, size =3.5)+
+  geom_text(y=-4, x=-1.1, label = 'Less Connected', color ='grey50', alpha=.5, size=3.5) +
+  geom_text(x=4, y=-4, label ='Hover Over Points', color= 'lightgray', alpha=.3, size=2.5) +
+  geom_point_interactive(alpha=.8, size =1.5)
+
+ggiraph(code={print(matrix_plot)})
+
+```
+
+  While betweeness informs a Seantor's connectivity, closeness measures their centrality. A higher closeness means that Senator is more central to the network. Put another way, betweeness measures the spokes, centrality measures the hubs. Standardizing each Senator's closeness to their opposing party's center allows us to infer that Senator's twitter bipartisanship. In the above graph, we take that Senator's standardized bipartisanship in the network against their standardized connections within the network to see where each Senator falls on the bipartisanship vs. connectivity matrix^1^. 
+  
+  The positive trend of the plot is intuitive - the more connections a Senator has, the more likely the are to be connected to members of the opposite party. However, there is no correlation between tenure and either closeness or betweeness^2^ inferring experience does not grant social media respect, which does not bode well for party leadership. Mitch McConnell and Orrin Hatch have 74 years of tenure between them. Mitch is the 70th most connected Senator in the network, while Orrin ranks just inside the bottom half at 55th. Neither have shown much bipartisanship online or on the Hill in their time.  
+  
+  In the upcoming 2018 midterms, incumbent Democrats running in Trump won states have a significant decision to make - whether to double down on progressive politics and hope for a blue turnout or take a moderate stance in an attempt to appeal to Republicans and Democrats alike. The Cook Political index indentifies 5 incumbent Democrat Senate races as 'Toss Ups' - Claire McCaskill (MO), Bill Nelson (FL), Joe Manchin (WV), Joe Donnelly (IN), and Heidi Heitkamp (SD) - all in states Trump won in 2016. 
+  
+
+```{r, echo=FALSE, warning=FALSE, fig.align='center'}
+toss_up <- c('Claire McCaskill', 'Bill Nelson', 'Joe Manchin','Joe Donnelly','Heidi Heitkamp')
+trump_margin <- data.frame('Senator'=toss_up, "Trump's 2016 Margin" = c('+18.6','+1.2','+46','+18.9','+29.2'))
+names(trump_margin) <- c('Senator',"Trump's 2016 Margin")
+senate_closeness %>% 
+  arrange(desc(cls_std)) %>% 
+  dplyr::mutate(cls_rank = row_number()) %>% 
+  dplyr::filter(Senator %in% toss_up) %>%
+  select(Senator, 'Bipartisanship Rank'= cls_rank) %>%
+  inner_join(trump_margin, by=c('Senator'='Senator')) %>% 
+  DT::datatable(options=list(paging=FALSE,searching=FALSE, ordering=FALSE, info=FALSE, columnDefs = list(list(className = 'dt-center', targets = 0:2))),rownames=FALSE)
+  
+
+
+```
+
+
+
+  In 2016, West Virginia went overwhelmingly (+46 points) for Trump on the promise of renewed coal jobs in lieu of renewable energy.  On Twitter, Joe Manchin pushes the bipartisan angle - a needed positioning to win re-election in West Virginia. Off Twitter, Manhcin's moderate positioning mirrors his online network. The West Virginian Senator votes alongside Trump and the Republican party 61.6% of time, the most out of any other Democrat, according to FiveThirtyEight's [vote tracking](https://projects.fivethirtyeight.com/congress-trump-score/?ex_cid=irpromo). Joe Manchin's positioning as a moderate, or even conservative Democrat, may help he win a considerable red tide. It may be working. Early [polling](https://realclearpolitics.com/epolls/2018/senate/wv/west_virginia_senate_morrisey_vs_manchin-6258.html) of West Virginia has Manchin up by 5.5 points against his republican challenger, Patrick Morrisey. 
+  
+  
+```{r, echo=FALSE, warning=FALSE}
+manchin_graph <- senate_df %>% 
+            dplyr::filter(target == 'Joe Manchin' | source=='Joe Manchin') %>% 
+            dplyr::select(source,target)
+manchin_graph <- network::network(manchin_graph, directed=TRUE)
+manchin_df <- senate_df %>% 
+  filter(source == 'Joe Manchin' | target== 'Joe Manchin')
+network::set.edge.attribute(manchin_graph, 'party', manchin_df[,'party'])
+
+senate_gg_manchin <- ggnetwork(manchin_graph,layout = "fruchtermanreingold", weighted = TRUE, diag=FALSE, cell.jitter = .5)
+senate_gg_manchin$na.y<- FALSE
+
+
+ggplot(senate_gg_manchin, aes(x = x, y = y, xend=xend, yend=yend, color = party)) +
+  geom_edges(aes(linetype = 'solid'), curvature=.4, alpha=.3, size=1, show.legend = FALSE, arrow=arrow(length=unit(6,'pt'), type='closed')) +
+  geom_nodes(alpha= .4, data=senate_gg_manchin, aes(x = x, y = y, xend=xend, yend=yend)) +
+  scale_color_manual(values=c('Republican'='red', 'Democrat'='dodgerblue', 'Independent'='forestgreen')) +
+  theme_blank() +
+  scale_linetype_manual(values = c('solid'='solid', 'dotted'='dotted')) +
+  geom_nodetext(data = senate_gg_manchin, aes(label=vertex.names, x=x,y=y), fontface='bold', size =2.5, nudge_y=.025, nudge_x = .025) +
+  guides(color="none", fill='none') +
+  theme(legend.position = 'bottom') +
+  ggtitle("Joe's World | @Sen_JoeManchin")
+
+```
+  
+  A more interesting candidate is Claire McCaskill. Missouri has increasingly turned [deep red](http://www.nydailynews.com/news/politics/new-missouri-laws-good-gun-owners-bad-voters-article-1.2794934) and elected this [guy](https://www.youtube.com/watch?v=Yf2Gai1uQYM) who turned out to be this [guy](https://www.cnn.com/2018/02/22/politics/missouri-eric-greitens/index.html). Missouri's swing from purple to red and decrease in moderate voter base makes her a hard democrat to win Missouri. In a recent [poll](http://www.stltoday.com/news/local/govt-and-politics/bad-news-for-mccaskill-new-poll-says-majority-of-missourians/article_f3d616a7-7f27-5709-ae40-809be0fb3c0d.html), McCaskill has a 38% approval rating and 53% of Missourians think its time for some new blood. 
+  
+```{r,echo=FALSE, warning=FALSE}
+
+cmck_graph <- senate_df %>% 
+            dplyr::filter(target == 'Claire McCaskill' | source=='Claire McCaskill') %>% 
+            dplyr::select(source,target)
+cmck_graph <- network::network(cmck_graph, directed=TRUE)
+cmck_df <- senate_df %>% 
+  filter(source == 'Claire McCaskill' | target== 'Claire McCaskill')
+network::set.edge.attribute(cmck_graph, 'party', cmck_df[,'party'])
+
+senate_gg_cmck <- ggnetwork(cmck_graph,layout = "fruchtermanreingold", weighted = TRUE, diag=FALSE, cell.jitter = .5)
+senate_gg_cmck$na.y<- FALSE
+
+
+ggplot(senate_gg_cmck, aes(x = x, y = y, xend=xend, yend=yend, color = party)) +
+  geom_edges(aes(linetype = 'solid'), curvature=.4, alpha=.3, size=1, show.legend = FALSE, arrow=arrow(length=unit(6,'pt'), type='closed')) +
+  geom_nodes(alpha= .4, data=senate_gg_cmck, aes(x = x, y = y, xend=xend, yend=yend)) +
+  scale_color_manual(values=c('Republican'='red', 'Democrat'='dodgerblue', 'Independent'='forestgreen')) +
+  theme_blank() +
+  scale_linetype_manual(values = c('solid'='solid', 'dotted'='dotted')) +
+  geom_nodetext(data = senate_gg_cmck, aes(label=vertex.names, x=x,y=y), fontface='bold', size =2.5, nudge_y=.025, nudge_x = .025) +
+  guides(color="none", fill='none') +
+  theme(legend.position = 'bottom') +
+  ggtitle("Claire's World | @clairecmc")
+
+```
+  
+  In spite of poll numbers and twitter, Claire has remained a more moderate Senator. She votes alongside Trump almost 46% of the time - the 4th highest among Democrats - and has sponsored bipartisan bills throughout her career. McCaskill illuminates the  distinction between a voter's perception of a Senator's bipartisanship and their reality, and the efficacy of concluding real politics from Twitter. 
+  
+  Twitter networks are limited. Networks may shine a spotlight on a Senator's political theater to their voter base, or they may tell who has a super good social media intern. From a simple scroll through your timeline, it can appear that our politics is strecting to the extremes with both parties hunkering down at their base and waging war with hashtags. But there seems to maintain some sensibility with the Senate network that is not as divisive as it may seem from @LockH3rupMAGA (I hope this is a real handle). In fact, the bipartisanship index ranges from .005 to .01 indicating a rather tight knit network. The differences between Claire McCaskill and Tim Scott (R-SC) are not vast - at least not by their twitter network. While the public domain and the White House has weaponzied twitter to push partisanship, the Senate has remained innocuous even ahead of the 2018 midterms. 
+  
+  Maybe 99 Senators do agree on one thing ...
+  
+ <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">.<a href="https://twitter.com/CoryBooker?ref_src=twsrc%5Etfw">@CoryBooker</a>- since we&#39;re in a &quot;bromance,&quot; Id like to share my fave <a href="https://twitter.com/hashtag/bonjovi?src=hash&amp;ref_src=twsrc%5Etfw">#bonjovi</a> song w/ u: <a href="http://t.co/WWzOK1G9LT">http://t.co/WWzOK1G9LT</a> <a href="https://twitter.com/hashtag/playbookcocktails?src=hash&amp;ref_src=twsrc%5Etfw">#playbookcocktails</a> <a href="https://twitter.com/hashtag/mixtape?src=hash&amp;ref_src=twsrc%5Etfw">#mixtape</a></p>&mdash; Senator Rand Paul (@RandPaul) <a href="https://twitter.com/RandPaul/status/487001738725969920">July 9, 2014</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  
+  Rand Paul isn't worth the follow. (Cory Booker does not follow Rand Paul)
+  
+
+
+
+
+
+
+All code and data can be found [here](https://github.com/filetczar/congress_twitter)
+  
+###### 1. Betweeness and closeness scores are normalized to the entire network's standard deviation and mean. 
+###### 2. The correlation between tenure and betweenees is .09. Tenure and closeness is .14. 
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+     
+     
+     
+     
+     
+     
+     

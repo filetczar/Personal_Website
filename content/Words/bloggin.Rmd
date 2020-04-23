@@ -1,0 +1,30 @@
+---
+title: "Bloggin'"
+author: "Phil Azar"
+date: '2018-03-22'
+slug: bloggin
+tags: []
+categories:
+- blog
+- about
+description: "I'm going to quell any expectations that I'm coming from some place of superior knowledge. I assure you I am not."
+ReadingTime: 2
+---
+
+In 8th grade, my teacher told me that one day I would write for Saturday Night Live in New York City. This seemed like a bright, promising future. Unfortunately, Mrs. Jones was a better teacher than a fortune teller and now I spend my time munging data in Cincinnati, OH. I don't know where things went so wrong, so quick.
+
+But things can be worse. I love my work and, most importantly, love learning and getting better at all things data science. Which brings us to this website. First, this website is for me. It is for me to work with new data sets, get stronger in statistical analysis and inference, and better at communicating complex insights simply. I don't expect high traffic. I'm predicting a loyal readership from my mom and [Kentuckians looking for auto insurance](https://www.philazar.com) only to be disappointed. In fact, I found it a tad egotistical to add google analytics. 
+
+This site will not be full of how-to-do type blog posts. When I mentioned to some friends I'd be bloggn', that was their first thought. So I'm going to quell any expectations that I'm coming from some place of superior knowledge. I assure you I am not. I plan to mimic (amateurishly) some of my favorite data journalism sites - [fivethirtyeight](https://www.fivethirtyeight.com), [The Pudding](https://www.pudding.cool), and [The Upshot](https://www.nytimes.com/section/upshot), to name a few. 
+
+If you do happen to drop in, feel free to stay, comment and connect. My guess is you will enjoy what you read. But who knows? Most predictions [fail anyway](http://mentalfloss.com/article/12587/how-get-saturday-night-live). 
+
+
+
+
+
+
+
+
+
+
