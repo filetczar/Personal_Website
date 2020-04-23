@@ -23,9 +23,11 @@ googleAnalytics = "UA-113127371-1"
 
 [params]
     tagline = "super good at words"
+    mainSections = ["Words", "Apps"]
 
 [permalinks]
-    Essays = "/:slug/"
+    Words = "/:slug/"
+    Apps = "/:slug/"
 
 
 

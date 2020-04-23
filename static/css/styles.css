@@ -153,7 +153,6 @@ time {
 
 #container main section#list ul li {
   padding: 0.5em 0;
-  border-bottom: 1px solid #ff7034;
 }
 
 #container main section#list ul li time, #container main section#list ul li span.count {
@@ -411,4 +410,11 @@ ul.pagination li {
 
 .border {
   border-top: solid 1px #cc5500
+}
+
+.intro {
+  margin: auto;
+  text-align:center;
+  width: 50%;
+  padding: 5px;
 }

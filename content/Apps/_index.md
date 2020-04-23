@@ -1,5 +1,5 @@
 +++
-title = "Cool Apps"
+title = "Apps"
 menu = "main"
 weight = "10"
 +++
