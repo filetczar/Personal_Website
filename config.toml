@@ -22,7 +22,7 @@ googleAnalytics = "UA-113127371-1"
     twitter = "filetczar"
 
 [params]
-    tagline = "super good at words"
+    tagline = "Data Scientist"
     mainSections = ["Words", "Apps"]
 
 [permalinks]
