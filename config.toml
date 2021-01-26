@@ -23,7 +23,7 @@ googleAnalytics = "UA-113127371-1"
 
 [params]
     tagline = "Data Scientist"
-    mainSections = ["stories","single-stat", "how-to"]
+    mainSections = ["stories"]
 
 [permalinks]
     Words = "/:slug/"
